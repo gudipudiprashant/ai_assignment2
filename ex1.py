@@ -11,7 +11,7 @@ sigma_list = [0.05, 1, 50]
 
 
 init_x = -1
-NUM_SAMPLES = 15000
+NUM_SAMPLES = 1500
 
 def target_distr(x):
 
@@ -65,13 +65,19 @@ if __name__ == '__main__':
         sample_list.append(cur_sample)
 
         plt.figure()
-        plt.hist(cur_sample)
+        plt.hist(cur_sample,bins=20)
         plt.title("sigma="+str(sigma))
         plt.xlim(-4,4)
+        # plt.ylim(-1.5,1.5)
+        plt.xlabel('Sample')
+        plt.ylabel('Frequency')
 
         plt.figure()
-        plt.plot(cur_sample)
+        plt.plot(cur_sample, 'ro')
         plt.title("sigma="+str(sigma))
+        plt.ylim(-1.5,1.5)
+        plt.xlabel('Iteration Number')
+        plt.ylabel('Sample')
 
 
     # plt.figure()
